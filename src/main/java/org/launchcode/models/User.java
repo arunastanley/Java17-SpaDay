@@ -1,15 +1,31 @@
 package org.launchcode.models;
 
+import java.util.Date;
+
 public class User {
 
     private String username;
     private String email;
     private String password;
+    private int id;
+    private int nextId = 1;
+    private Date date;
 
     public User(String username, String email, String password){
+        this.id = nextId;
+        nextId += 1;
         this.username = username;
         this.email = email;
         this.password = password;
+        this.date = new Date();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public Date getDate() {
+        return date;
     }
 
     public String getUsername() {

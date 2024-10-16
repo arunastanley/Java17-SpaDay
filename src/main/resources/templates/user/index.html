@@ -2,10 +2,19 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8"/>
-    <title>Title</title>
-
+    <title>List users</title>
+    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
 </head>
 <body>
-<a th:href="@{/}">Service selection</a>
+
+<h3 th:text="'Welcome ' + ${username} + '!'"></h3>
+<a th:href="@{/}">Select your spa service</a>
+
+<h1>Users: </h1>
+
+<ul th:each="user:${users}">
+        <a th:href="@{'/user/details/' +${user.id}}" ><li th:text="${user.username}">Dummy</li></a>
+</ul>
+
 </body>
 </html>
